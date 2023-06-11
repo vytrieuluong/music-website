@@ -1,0 +1,21 @@
+{
+
+  "DATABASE_01": {
+      "host":"localhost",
+      "user":"root",
+      "password":"0397495785Ab@",
+      "db":"mymucsic"
+  },
+    "DATABASE_00": {
+      "host":"localhost",
+      "user":"root",
+      "password":"vyrkmmai",
+      "db":"mymucsic"
+  },
+    "DATABASE_03": {
+      "host":"localhost",
+      "user":"root",
+      "password":"Tykhung200300",
+      "db":"mymusic_db"
+    }
+}

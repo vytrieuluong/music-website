@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Album Manager</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Album Manager</h1>
+
+    <h2>Albums</h2>
+    <ul id="album-list"></ul>
+
+    <h2>Add New Album</h2>
+    <form id="add-album-form">
+        <label for="album-id">Album ID:</label>
+        <input type="text" id="album-id" name="album-id"><br>
+        <label for="album-name">Album Name:</label>
+        <input type="text" id="album-name" name="album-name"><br>
+        <label for="album-description">Album Description:</label>
+        <textarea id="album-description" name="album-description"></textarea><br>
+        <label for="album-date">Album Date:</label>
+        <input type="text" id="album-date" name="album-date"><br>
+        <button type="submit">Add Album</button>
+    </form>
+
+    <script>
+        // Load albums
+        $.get('/albums', function(data) {
+            var albumList = $('#album-list');
+            albumList.empty();
+            data.forEach(function(album) {
+                var li = $('<li>');
+                li.text(album.album_name);
+                albumList.append(li);
+            });
+        });
+
+        // Add new album
+        $('#add-album-form').submit(function(e) {
+            e.preventDefault();
+            var form = $(this);
+            var album = {
+                album_id: form.find('#album-id').val(),
+                album_name: form.find('#album-name').val(),
+                album_description: form.find('#album-description').val(),
+                album_date: form.find('#album-date').val()
+            };
+            $.ajax({
+                url: '/album',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ data: album }),
+                success: function(response) {
+                    alert('Album added successfully!');
+                    form[0].reset();
+                },
+                error: function(xhr, status, error) {
+                    alert('Error adding album: ' + error);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

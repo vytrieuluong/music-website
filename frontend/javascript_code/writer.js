@@ -1,0 +1,233 @@
+//let rememberedWriterID = ""; // Variable to store the remembered writer ID
+//
+//function searchWriter() {
+//  const search = document.getElementById('searched').value;
+//  const writerTable = document.getElementById('writer-table');
+//
+//  if (search === '*') {
+//    // Fetch all writers from the API
+//    fetch('http://127.0.0.1:5000/writer?wid=*')
+//      .then(response => response.json())
+//      .then(data => {
+//        writerTable.style.display = 'block';
+//        const writerList = document.getElementById('writer-list');
+//        writerList.innerHTML = ''; // Clear all data table before adding new data
+//        data.forEach(writer => {
+//          const tr = document.createElement('tr');
+//          tr.innerHTML = `
+//            <td style="text-align:center;">${writer.write_id}</td>
+//            <td style="text-align:center;">${writer.writer_name}</td>
+//            <td style="text-align:center;">${writer.writer_description}</td>
+//            <td style="text-align:center;"><button onclick="showEditForm('${writer.write_id}')">Edit</button><button onclick="deleteWriter('${writer.write_id}')">Delete</button></td>
+//          `;
+//          writerList.appendChild(tr);
+//        });
+//      })
+//      .catch(error => {
+//        writerTable.style.display = 'none';
+//        console.log('Failed to fetch writers:', error);
+//      });
+//  } else {
+//    // Fetch writer by ID from the API
+//    fetch(`http://127.0.0.1:5000/writer?wid=${search}`)
+//      .then(response => response.json())
+//      .then(writer => {
+//        writerTable.style.display = 'block';
+//        const writerList = document.getElementById('writer-list');
+//        writerList.innerHTML = ''; // Clear all data table before adding new data
+//
+//        const tr = document.createElement('tr');
+//        tr.innerHTML = `
+//          <td style="text-align:center;">${writer.write_id}</td>
+//          <td style="text-align:center;">${writer.writer_name}</td>
+//          <td style="text-align:center;">${writer.writer_description}</td>
+//          <td style="text-align:center;"><button onclick="showEditForm('${writer.write_id}')">Edit</button><button onclick="deleteWriter('${writer.write_id}')">Delete</button></td>
+//        `;
+//        writerList.appendChild(tr);
+//      })
+//      .catch(error => {
+//        writerTable.style.display = 'none';
+//        console.log('Writer not found:', error);
+//      });
+//  }
+//}
+//
+//function showAddForm() {
+//  const addForm = document.getElementById('form-to-add-writer');
+//  addForm.style.display = 'block';
+//}
+//
+//function showEditForm(writerID) {
+//  const editFormContainer = document.getElementById('edit-form-container');
+//  const formToPut = document.getElementById('form_to_put_writer');
+//  formToPut.style.display = 'block';
+//
+//  const writerIDInput = document.getElementById('write_id_put');
+//  const writerNameInput = document.getElementById('writer_name_put');
+//  const writerDescriptionInput = document.getElementById('writer_description_put');
+//
+//  // Set the writer ID in the edit form
+//  formToPut.setAttribute('data-writer-id', writerID);
+//
+//  // Fetch writer data by ID from the API
+//  fetch(`http://127.0.0.1:5000/writer?wid=${writerID}`)
+//    .then(response => response.json())
+//    .then(writer => {
+//      writerNameInput.value = writer.writer_name;
+//      writerDescriptionInput.value = writer.writer_description;
+//      editFormContainer.style.display = 'block';
+//    })
+//    .catch(error => {
+//      console.log('Failed to fetch writer:', error);
+//    });
+//
+//  // Store the writerID in the rememberedWriterID variable
+//  rememberedWriterID = writerID;
+//}
+//
+//function deleteWriter(write_id) {
+//  // Send a DELETE request to the API with the writer ID value
+//  fetch(`http://127.0.0.1:5000/writer/${write_id}`, {
+//    method: 'DELETE',
+//    headers: {
+//      'Content-Type': 'application/json'
+//    }
+//  })
+//    .then(response => {
+//      // If the request is successful, remove the corresponding table row
+//      const row = document.querySelector(`#writer-list tr[data-write_id="${write_id}"]`);
+//      row.parentNode.removeChild(row);
+//      const successMessage = document.getElementById('delete-success-message');
+//      successMessage.style.display = 'block';
+//    })
+//    .catch(error => console.error('Failed to delete writer:', error));
+//}
+//
+//// Add an event listener to the writer list table
+//const writerList = document.getElementById('writer-list');
+//writerList.addEventListener('click', (event) => {
+//  const target = event.target;
+//  // Check if the clicked element is a delete button
+//  if (target.tagName === 'BUTTON' && target.textContent === 'Delete') {
+//    const writerID = target.getAttribute('data-writer-id');
+//    deleteWriter(writerID); // Pass the correct writer ID
+//    const successMessage = document.getElementById('delete-success-message');
+//    successMessage.style.display = 'block';
+//    const writerTable = document.getElementById('writer-table');
+//    writerTable.style.display = 'none';
+//    setTimeout(() => {
+//      successMessage.style.display = 'none';
+//      searchWriter();
+//    }, 1000);
+//  }
+//});
+//
+//
+//function handleAddFormSubmit(event) {
+//  event.preventDefault();
+//
+//  const write_id = document.getElementById('write_id').value;
+//  const writer_name = document.getElementById('writer_name').value;
+//  const writer_description = document.getElementById('writer_description').value;
+//
+//  const writerData = {
+//    write_id: write_id,
+//    writer_name: writer_name,
+//    writer_description: writer_description
+//  };
+//
+//  fetch('http://127.0.0.1:5000/writer?wid=*', {
+//    method: 'POST',
+//    headers: {
+//      'Content-Type': 'application/json'
+//    },
+//    body: JSON.stringify(writerData)
+//  })
+//    .then(response => response.json())
+//    .then(data => {
+//      const writerTable = document.getElementById('writer-table');
+//      const postSuccessMessage = document.getElementById('success-message');
+//      postSuccessMessage.style.display = 'block';
+//      writerTable.style.display = 'none';
+//      form.reset();
+//      console.log('Data posted successfully:', data);
+//      setTimeout(() => {
+//        postSuccessMessage.style.display = 'none';
+//        searchWriter();
+//      }, 1000);
+//    })
+//    .catch(error => {
+//      console.error('Error posting data:', error);
+//      const postFormContainer = document.getElementById('form-to-add-writer');
+//      // Display the error message to the user
+//      const errorMessage = document.getElementById('error-message');
+//      errorMessage.textContent = 'Failed to POST: Please check if the Writer ID already exists.' + ' (The main error: ' + error.message + ')';
+//      errorMessage.style.display = 'block';
+//      postFormContainer.style.display = 'none';
+//      const writerTable = document.getElementById('writer-table');
+//      writerTable.style.display = 'none';
+//      setTimeout(() => {
+//        postFormContainer.style.display = 'block';
+//        errorMessage.style.display = 'none';
+//        searchWriter();
+//      }, 2000);
+//    });
+//}
+//
+//function handlePutFormSubmit(event) {
+//  event.preventDefault();
+//
+//  const form = document.getElementById('form_to_put_writer');
+//  const writerID = form.getAttribute('data-writer-id');
+//  const writer_name = document.getElementById('writer_name_put').value;
+//  const writer_description = document.getElementById('writer_description_put').value;
+//
+//  const writerData = {
+//    writer_name: writer_name,
+//    writer_description: writer_description
+//  };
+//
+//  fetch(`http://127.0.0.1:5000/writer/${writerID}`, {
+//    method: 'PUT',
+//    headers: {
+//      'Content-Type': 'application/json'
+//    },
+//    body: JSON.stringify(writerData)
+//  })
+//    .then(response => response.json())
+//    .then(data => {
+//      const writerTable = document.getElementById('writer-table');
+//      const putSuccessMessage = document.getElementById('put-success-message');
+//      putSuccessMessage.style.display = 'block';
+//      writerTable.style.display = 'none';
+//      form.reset();
+//      console.log('Data updated successfully:', data);
+//      setTimeout(() => {
+//        putSuccessMessage.style.display = 'none';
+//        searchWriter();
+//      }, 1000);
+//    })
+//    .catch(error => {
+//      console.error('Error updating data:', error);
+//      const putFormContainer = document.getElementById('edit-form-container');
+//      // Display the error message to the user
+//      const errorMessage = document.getElementById('put-error-message');
+//      errorMessage.textContent = 'Failed to PUT: Please check if the Writer ID exists.' + ' (The main error: ' + error.message + ')';
+//      errorMessage.style.display = 'block';
+//      putFormContainer.style.display = 'none';
+//      const writerTable = document.getElementById('writer-table');
+//      writerTable.style.display = 'none';
+//      setTimeout(() => {
+//        putFormContainer.style.display = 'block';
+//        errorMessage.style.display = 'none';
+//        searchWriter();
+//      }, 2000);
+//    });
+//}
+//
+//// Add event listeners to the form submit buttons
+//const addForm = document.getElementById('add-writer-form');
+//addForm.addEventListener('submit', handleAddFormSubmit);
+//
+//const putForm = document.getElementById('put-writer-form');
+//putForm.addEventListener('submit', handlePutFormSubmit);
