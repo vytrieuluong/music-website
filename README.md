@@ -42,8 +42,28 @@ ALBUM
 SONG_TYPE
 - Item 1 Represents the genre or type of the song.
 - Item 1 Attributes:
- - Item 1 type_name: Genre or type of the song (e.g., Pop, Jazz, Rock).
- - Item 1 description: A brief description of the genre.
+   - Item 1 type_name: Genre or type of the song (e.g., Pop, Jazz, Rock).
+   - Item 1 description: A brief description of the genre.
+ 
+2. Relationships
+song_writer
+- Item 1 Defines a many-to-many relationship between SONG and WRITER.
+- Item 1 Each song can have multiple writers, and each writer can write multiple songs.
+- Item 1 Linked by song_id and writer_id.
+BEGIN
+- Item 1 Represents the relationship between a SONG, a SINGER, and an ALBUM.
+- Item 1 A song is performed by a singer and is part of an album.
+- Item 1 Attributes:
+   - Item 1 date: The date when the song was recorded.
+   - Item 1 location: The location where the song was recorded.
+
+3. Data Flow
+- Item 1 Each SONG is connected to a specific SONG_TYPE for classification.
+- Item 1 A SONG is written by one or more WRITER(s) and performed by one or more SINGER(s).
+- Item 1 Songs are grouped into ALBUMS, and each album contains multiple songs.
+- Item 1 The relationships allow for complex queries, such as:
+- Item 1 Retrieving all songs written by a particular writer.
+- Item 1 Finding all songs within a specific album or genre.
 
 ![image](https://github.com/user-attachments/assets/a5bc34c0-4222-4e64-874e-54df06ba11e9)
 
