@@ -12,14 +12,14 @@ Entity-Relationship Diagram (ERD) Explanation
 This section explains the relationships and entities in our music database system, as illustrated in the ER diagram. The ERD helps to structure and manage the different entities involved in our application. Below is a breakdown of the entities and their relationships.
 
 1. Entities and Attributes:
-SONG: Represents each individual song in the system.
-Attributes:
-- Item 1 song_name: Name of the song.
-listen_count: Number of times the song has been played.
-rate: Rating of the song.
-Linked to SONG_TYPE, WRITER, and SINGER.
+SONG:
+- Item 1 Represents each individual song in the system.
+- Item 1 Attributes:
+  - Item 1 song_name: Name of the song.
+  - Item 1 listen_count: Number of times the song has been played.
+  - Item 1 rate: Rating of the song.
+  - Item 1 Linked to SONG_TYPE, WRITER, and SINGER.
 WRITER:
-
 Represents songwriters.
 Attributes:
 writer_name: Name of the songwriter.
