@@ -11,7 +11,7 @@ Design Full-Stack MusicApp
 Entity-Relationship Diagram (ERD) Explanation
 This section explains the entities and relationships within our music database system, as illustrated in the ER diagram. The ERD helps structure and manage the different entities involved in our application. Below is a breakdown of the entities and their relationships.
 
-### **Entities and Attributes**
+### **1. Entities and Attributes**
 ### **SONG**
 - Represents each individual song in the system.
 -  Attributes:
