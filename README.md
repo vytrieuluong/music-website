@@ -13,12 +13,12 @@ This section explains the entities and relationships within our music database s
 
 . Entities and Attributes
 SONG
-Item 1 Represents each individual song in the system.
-Item 1 Attributes:
-Item 1 song_name: Name of the song.
-Item 1 listen_count: Number of times the song has been played.
-Item 1 rate: Rating of the song.
-Item 1 Linked to SONG_TYPE, WRITER, and SINGER.
+- Item 1 Represents each individual song in the system.
+- Item 1 Attributes:
+- Item 1 song_name: Name of the song.
+- Item 1 listen_count: Number of times the song has been played.
+- Item 1 rate: Rating of the song.
+- Item 1 Linked to SONG_TYPE, WRITER, and SINGER.
 WRITER
 Item 1 Represents songwriters.
 Item 1 Attributes:
