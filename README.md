@@ -7,5 +7,9 @@ MYMUSIC WEB
 
 ![image](https://github.com/user-attachments/assets/89477b56-1305-494a-bf09-f370b598d4f0)
 
-![image](https://github.com/user-attachments/assets/e5477077-b8f3-49cd-a065-b94945d37e82)
+![image](https://github.com/user-attachments/assets/a5bc34c0-4222-4e64-874e-54df06ba11e9)
+
+
+
+
 
