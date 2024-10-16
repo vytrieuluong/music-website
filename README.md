@@ -15,35 +15,35 @@ This section explains the entities and relationships within our music database s
 SONG
 - Item 1 Represents each individual song in the system.
 - Item 1 Attributes:
-- Item 1 song_name: Name of the song.
-- Item 1 listen_count: Number of times the song has been played.
-- Item 1 rate: Rating of the song.
-- Item 1 Linked to SONG_TYPE, WRITER, and SINGER.
+  - Item 1 song_name: Name of the song.
+  - Item 1 listen_count: Number of times the song has been played.
+  - Item 1 rate: Rating of the song.
+  - Item 1 Linked to SONG_TYPE, WRITER, and SINGER.
 WRITER
-Item 1 Represents songwriters.
-Item 1 Attributes:
-Item 1 writer_name: Name of the songwriter.
-Item 1 writer_description: Additional details about the writer.
-Item 1 writer_id: Unique identifier for each writer.
-Item 1 Connected to SONG via the song_writer relationship.
+-Item 1 Represents songwriters.
+- Item 1 Attributes:
+  - Item 1 writer_name: Name of the songwriter.
+  -Item 1 writer_description: Additional details about the writer.
+  -Item 1 writer_id: Unique identifier for each writer.
+  -Item 1 Connected to SONG via the song_writer relationship.
 SINGER
-Item 1 Represents singers or performers of the song.
-Item 1 Attributes:
-Item 1 singer_name: Name of the singer.
-Item 1 day_of_birth: Date of birth of the singer.
-Item 1 hometown: Hometown of the singer.
-Item 1 singer_description: Additional description of the singer.
+- Item 1 Represents singers or performers of the song.
+- Item 1 Attributes:
+  - Item 1 singer_name: Name of the singer.
+  - Item 1 day_of_birth: Date of birth of the singer.
+  - Item 1 hometown: Hometown of the singer.
+ - Item 1 singer_description: Additional description of the singer.
 ALBUM
-Item 1 Represents music albums that contain multiple songs.
-Item 1 Attributes:
-Item 1 album_name: Name of the album.
-Item 1 date_release_album: Release date of the album.
-Item 1 album_description: Description of the album.
+- Item 1 Represents music albums that contain multiple songs.
+- Item 1 Attributes:
+  - Item 1 album_name: Name of the album.
+  - Item 1 date_release_album: Release date of the album.
+  - Item 1 album_description: Description of the album.
 SONG_TYPE
-Item 1 Represents the genre or type of the song.
-Item 1 Attributes:
-Item 1 type_name: Genre or type of the song (e.g., Pop, Jazz, Rock).
-Item 1 description: A brief description of the genre.
+- Item 1 Represents the genre or type of the song.
+- Item 1 Attributes:
+ - Item 1 type_name: Genre or type of the song (e.g., Pop, Jazz, Rock).
+ - Item 1 description: A brief description of the genre.
 
 ![image](https://github.com/user-attachments/assets/a5bc34c0-4222-4e64-874e-54df06ba11e9)
 
