@@ -1,6 +1,6 @@
 Design Full-Stack MusicApp
 
-### 6. **Đóng góp (Contributing)**
+### **The tools, frameworks, libraries, and environments used in the project are displayed**
 ![image](https://github.com/user-attachments/assets/89465805-dfb3-4335-b3d8-8cdaa65ad4cc)
 
 ![image](https://github.com/user-attachments/assets/33c38eb2-0af7-48df-8c47-ccdfb68926b6)
