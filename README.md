@@ -1,4 +1,4 @@
-MYMUSIC WEB
+Design Full-Stack MusicApp
 
 ![image](https://github.com/user-attachments/assets/89465805-dfb3-4335-b3d8-8cdaa65ad4cc)
 
